@@ -4,8 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ site.description }}">
+  <meta name="author" content="Steven Atilho">
+  <meta name="keywords" content="Steven Atilho, Full-Stack Developer, Cybersecurity Engineer, Connecticut, Network Setup, Computer Repair, Smart Home, Technical Consulting">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url | default: '' }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.title }}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
+  <meta name="twitter:description" content="{{ site.description }}">
+
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <link rel="canonical" href="{{ site.url }}{{ page.url | default: '' }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Steven Atilho",
+    "jobTitle": "VP Full-Stack Developer",
+    "url": "{{ site.url }}",
+    "email": "{{ site.email }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Connecticut",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://linkedin.com/in/stevenati"
+    ],
+    "knowsAbout": [
+      "Cybersecurity",
+      "Zero-Trust Architecture",
+      "Full-Stack Development",
+      "Network Setup",
+      "Smart Home Integration"
+    ]
+  }
+  </script>
 </head>
 <body>
   <nav class="navbar">
