@@ -1,0 +1,24 @@
+# Jekyll build output
+_site/
+
+# Ruby dependencies
+vendor/
+.bundle/
+Gemfile.lock
+
+# macOS
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Jekyll cache
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+CLAUDE.md
