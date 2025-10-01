@@ -65,11 +65,6 @@ title: Home
 
     <div class="services-grid">
       <div class="service-card">
-        <h3>E-Moto Repair & Maintenance</h3>
-        <p>Comprehensive e-moto diagnostics, repairs, maintenance, and customization services. Servicing Talaria, Surron, E-Ride, and more.</p>
-      </div>
-
-      <div class="service-card">
         <h3>Home/Small-Business Network Setup</h3>
         <p>Custom network configurations including VPN, Ad-Blocking, Ethernet, Mesh/Multi-Router setups, Firewalls, and more.</p>
       </div>
@@ -87,11 +82,6 @@ title: Home
       <div class="service-card">
         <h3>Technical Consulting</h3>
         <p>Expert guidance on security architecture, development workflows, and system optimization.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>More Coming Soon</h3>
-        <p>Expanding offerings based on client needs and market demand.</p>
       </div>
     </div>
   </div>

@@ -10,7 +10,7 @@ VP Full-Stack Developer at a G-SIB specializing in enterprise security architect
 
 - **Enterprise Security**: Zero-trust architecture, endpoint security at scale (50,000+ devices)
 - **Full-Stack Development**: Team leadership, code review, deployment pipelines
-- **Technical Services**: E-bike repair, home networking, technical consulting
+- **Technical Services**: Home/business networking, smart-home integration, computer repair & builds, technical consulting
 
 ## Built With
 
