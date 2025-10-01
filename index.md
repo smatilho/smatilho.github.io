@@ -17,7 +17,7 @@ title: Home
 <section id="about" class="about">
   <div class="container">
     <h2>About Me</h2>
-    <p>I'm a VP Full-Stack Developer at a G-SIB, where I lead the design, engineering, and deployment of an in-house zero-trust endpoint security solution protecting over 50,000 employees across enterprise Windows, macOS, and VDI environments. With 20,000+ active daily users, I manage development teams, conduct code reviews, perform robust QA testing, and coordinate cross-functionally with other supporting engineering teams to ensure seamless application lifecycle management.</p>
+    <p>I'm a VP Full-Stack Developer at a G-SIB (global systemically important bank), where I lead the design, engineering, and deployment of an in-house zero-trust endpoint security solution protecting over 50,000 employees across enterprise Windows, macOS, and VDI environments. With 20,000+ active daily users, I manage development teams, conduct code reviews, perform robust QA testing, and coordinate cross-functionally with other supporting engineering teams to ensure seamless application lifecycle management.</p>
 
     <p>Beyond my corporate role, I'm an extremely quick learner with a passion for DIY projects and hands-on problem-solving.</p>
   </div>

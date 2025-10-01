@@ -21,4 +21,6 @@ Gemfile.lock
 .jekyll-cache/
 .jekyll-metadata
 
+# Private notes
 CLAUDE.md
+business-strategy-notes.txt
