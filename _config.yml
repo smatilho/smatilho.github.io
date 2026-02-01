@@ -1,8 +1,8 @@
 # Site settings
-title: Steven Atilho
-email: contact@stevenatilho.com
+title: Steven Morais Atilho
+email: smatilho@gmail.com
 description: >-
-  Full-Stack Developer | Enterprise Cybersecurity Engineer | Problem Solver
+  Builder of things. Security by trade. Curious by nature.
 baseurl: ""
 url: "https://www.stevenatilho.com"
 
@@ -30,14 +30,14 @@ exclude:
 
 # Collections (for future scalability)
 collections:
-  services:
+  writeups:
     output: true
-    permalink: /services/:path/
+    permalink: /writeups/:path/
 
 # Defaults
 defaults:
   - scope:
       path: ""
-      type: "services"
+      type: "writeups"
     values:
-      layout: "service"
+      layout: "post"

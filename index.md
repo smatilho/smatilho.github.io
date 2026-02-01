@@ -5,100 +5,119 @@ title: Home
 
 <section id="hero" class="hero">
   <div class="container">
-    <h1>Steven Atilho</h1>
-    <p class="tagline">Full-Stack Developer | Enterprise Cybersecurity Engineer | Problem Solver</p>
-    <div class="cta-buttons">
-      <a href="#about" class="btn btn-primary">Learn More</a>
-      <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+    <h1>Steven Morais Atilho</h1>
+    <div class="typewriter">
+      <span id="typewriter-text"></span><span class="cursor">|</span>
     </div>
+    <div class="scroll-indicator">scroll</div>
   </div>
 </section>
 
 <section id="about" class="about">
   <div class="container">
-    <h2>About Me</h2>
-    <p>I'm a VP Full-Stack Developer at a G-SIB (global systemically important bank), where I lead the design, engineering, and deployment of an in-house zero-trust endpoint security solution protecting over 50,000 employees across enterprise Windows, macOS, and VDI environments. With 20,000+ active daily users, I manage development teams, conduct code reviews, perform robust QA testing, and coordinate cross-functionally with other supporting engineering teams to ensure seamless application lifecycle management.</p>
-
-    <p>Beyond my corporate role, I'm an extremely quick learner with a passion for DIY projects and hands-on problem-solving.</p>
+    <div class="section-title">
+      <span class="brace">{</span>
+      <h2>About</h2>
+      <span class="brace">}</span>
+    </div>
+    <div class="about-content">
+      <p>By day, I engineer enterprise security solutions, architecting systems that keep tens of thousands of endpoints secure.</p>
+      <p>By night (and weekends), I'm building things. Whether it's tinkering with home automation or diving into a new technical rabbit hole, I'm always working on something.</p>
+    </div>
   </div>
 </section>
 
-<section id="professional" class="professional">
+<section id="projects" class="projects">
   <div class="container">
-    <h2>Professional Expertise</h2>
-
-    <div class="expertise-grid">
-      <div class="expertise-card">
-        <h3>Enterprise Security</h3>
-        <ul>
-          <li>Zero-trust architecture design & implementation</li>
-          <li>Endpoint security at scale (50,000+ devices)</li>
-          <li>Cross-platform deployment (Windows, macOS, VDI)</li>
-        </ul>
+    <div class="section-title">
+      <span class="brace">{</span>
+      <h2>Projects</h2>
+      <span class="brace">}</span>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3><span class="icon">//</span> Capaz AI</h3>
+        <p>AI-powered business solutions helping companies automate workflows and make smarter decisions with their data.</p>
+        <div class="project-tags">
+          <span class="project-tag">AI</span>
+          <span class="project-tag">Business</span>
+          <span class="project-tag">Automation</span>
+        </div>
+        <a href="https://capazai.com" target="_blank" class="project-link">capazai.com &rarr;</a>
       </div>
-
-      <div class="expertise-card">
-        <h3>Full-Stack Development</h3>
-        <ul>
-          <li>Team leadership & code review</li>
-          <li>Robust QA testing & deployment pipelines</li>
-          <li>Enterprise application lifecycle management</li>
-        </ul>
+      <div class="project-card">
+        <h3><span class="icon">//</span> GitHub Projects</h3>
+        <p>Open source contributions, personal experiments, and various coding projects. From utilities to full applications.</p>
+        <div class="project-tags">
+          <span class="project-tag">Open Source</span>
+          <span class="project-tag">Code</span>
+        </div>
+        <a href="https://github.com/smatilho" target="_blank" class="project-link">github.com/smatilho &rarr;</a>
       </div>
-
-      <div class="expertise-card">
-        <h3>Cross-Functional Leadership</h3>
-        <ul>
-          <li>Cross-departmental coordination</li>
-          <li>High-stakes incident management</li>
-          <li>Business-critical application support</li>
-        </ul>
+      <div class="project-card">
+        <h3><span class="icon">//</span> More Coming Soon</h3>
+        <p>Always building something new. Check back for updates on current and upcoming projects.</p>
+        <div class="project-tags">
+          <span class="project-tag">In Progress</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="services" class="services">
+<section id="writeups" class="writeups">
   <div class="container">
-    <h2>Services & Capabilities</h2>
-    <p class="section-intro">Beyond my career, I also offer various specialized services:</p>
+    <div class="section-title">
+      <span class="brace">{</span>
+      <h2>Writeups</h2>
+      <span class="brace">}</span>
+    </div>
+    <div class="coming-soon">
+      <h3>Coming Soon</h3>
+      <p>Technical guides and walkthroughs on various projects and configurations.</p>
+      <ul class="preview-list">
+        <li>Network-Wide Ad Blocking with PiHole + Tailscale</li>
+        <li>Home Lab Setup and Configuration</li>
+        <li>More guides in the works...</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>Home/Small-Business Network Setup</h3>
-        <p>Custom network configurations including VPN, Ad-Blocking, Ethernet, Mesh/Multi-Router setups, Firewalls, and more.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Smart-Home Integration</h3>
-        <p>Installation & configuration of smart-home IoT devices such as cameras, doorbells, thermostats, and more.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Computer Repair & Builds</h3>
-        <p>Custom PC builds, hardware upgrades, software troubleshooting, and repair services for desktops and laptops.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Technical Consulting</h3>
-        <p>Expert guidance on security architecture, development workflows, and system optimization.</p>
-      </div>
+<section id="photography" class="photography">
+  <div class="container">
+    <div class="section-title">
+      <span class="brace">{</span>
+      <h2>Photography</h2>
+      <span class="brace">}</span>
+    </div>
+    <div class="coming-soon">
+      <h3>Coming Soon</h3>
+      <p>A gallery of photos from travels, projects, and everyday moments.</p>
     </div>
   </div>
 </section>
 
 <section id="contact" class="contact">
   <div class="container">
-    <h2>Get In Touch</h2>
-    <p>Based in Connecticut and available for local or remote work. Let's connect.</p>
-
-    <div class="contact-methods">
-      <div class="contact-item">
-        <strong>Email:</strong> <a href="mailto:smatilho@gmail.com">smatilho@gmail.com</a>
-      </div>
-      <div class="contact-item">
-        <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/stevenati" target="_blank">linkedin.com/in/stevenati</a>
-      </div>
+    <div class="section-title">
+      <span class="brace">{</span>
+      <h2>Contact</h2>
+      <span class="brace">}</span>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:smatilho@gmail.com" class="contact-link">
+        <span class="icon">@</span>
+        smatilho@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/stevenati" target="_blank" class="contact-link">
+        <span class="icon">in</span>
+        linkedin.com/in/stevenati
+      </a>
+      <a href="https://github.com/smatilho" target="_blank" class="contact-link">
+        <span class="icon">&lt;/&gt;</span>
+        github.com/smatilho
+      </a>
     </div>
   </div>
 </section>

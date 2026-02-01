@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ site.description }}">
   <meta name="author" content="Steven Atilho">
-  <meta name="keywords" content="Steven Atilho, Full-Stack Developer, Cybersecurity Engineer, Connecticut, Network Setup, Computer Repair, Smart Home, Technical Consulting">
+  <meta name="keywords" content="Steven Atilho, Developer, Security Engineer, Projects, Portfolio, GitHub">
 
   <!-- Open Graph / Social Media -->
   <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
@@ -28,37 +28,36 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Steven Atilho",
-    "jobTitle": "VP Full-Stack Developer",
+    "name": "Steven Morais Atilho",
     "url": "{{ site.url }}",
     "email": "{{ site.email }}",
-    "address": {
-      "@type": "PostalAddress",
-      "addressRegion": "Connecticut",
-      "addressCountry": "US"
-    },
     "sameAs": [
-      "https://linkedin.com/in/stevenati"
+      "https://linkedin.com/in/stevenati",
+      "https://github.com/smatilho"
     ],
     "knowsAbout": [
+      "Software Development",
       "Cybersecurity",
-      "Zero-Trust Architecture",
       "Full-Stack Development",
-      "Network Setup",
-      "Smart Home Integration"
+      "Enterprise Security"
     ]
   }
   </script>
 </head>
 <body>
+  <!-- Background glow effects -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
   <nav class="navbar">
     <div class="container">
-      <a href="/" class="logo">{{ site.title }}</a>
+      <a href="/" class="logo">Atilho</a>
       <ul class="nav-menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#professional">Professional</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about"><span class="nav-number">0.</span>ABOUT</a></li>
+        <li><a href="#projects"><span class="nav-number">1.</span>PROJECTS</a></li>
+        <li><a href="#writeups"><span class="nav-number">2.</span>WRITEUPS</a></li>
+        <li><a href="#photography"><span class="nav-number">3.</span>PHOTOS</a></li>
+        <li><a href="#contact"><span class="nav-number">4.</span>CONTACT</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle navigation">
         <span></span>
@@ -68,17 +67,70 @@
     </div>
   </nav>
 
+  <!-- Section indicators -->
+  <div class="section-indicators">
+    <a href="#hero" class="section-dot active" data-section="hero"></a>
+    <a href="#about" class="section-dot" data-section="about"></a>
+    <a href="#projects" class="section-dot" data-section="projects"></a>
+    <a href="#writeups" class="section-dot" data-section="writeups"></a>
+    <a href="#photography" class="section-dot" data-section="photography"></a>
+    <a href="#contact" class="section-dot" data-section="contact"></a>
+  </div>
+
   <main>
     {{ content }}
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+      <p>&copy; {{ 'now' | date: "%Y" }} Steven Morais Atilho</p>
     </div>
   </footer>
 
   <script>
+    // Typewriter effect
+    const phrases = [
+      'Builder of things.',
+      'Security by trade.',
+      'Curious by nature.'
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typewriterElement = document.getElementById('typewriter-text');
+
+    function typewrite() {
+      if (!typewriterElement) return;
+
+      const currentPhrase = phrases[phraseIndex];
+
+      if (isDeleting) {
+        typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typeSpeed = isDeleting ? 50 : 100;
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        typeSpeed = 2000; // Pause at end
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typeSpeed = 500; // Pause before next phrase
+      }
+
+      setTimeout(typewrite, typeSpeed);
+    }
+
+    // Start typewriter when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(typewrite, 1000);
+    });
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -106,6 +158,31 @@
         navToggle.classList.remove('active');
       });
     });
+
+    // Section indicator active state
+    const sections = document.querySelectorAll('section[id]');
+    const sectionDots = document.querySelectorAll('.section-dot');
+
+    function updateActiveSection() {
+      const scrollY = window.scrollY;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 200;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          sectionDots.forEach(dot => {
+            dot.classList.remove('active');
+            if (dot.dataset.section === sectionId) {
+              dot.classList.add('active');
+            }
+          });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveSection);
   </script>
 </body>
 </html>
