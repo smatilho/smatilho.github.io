@@ -100,7 +100,7 @@ When prompted, select:
 - **Reset Tailscale on exit**: No
 - **Install Gateway service**: Yes
 
-![OpenClaw onboarding security warning](/assets/images/writeups/openclaw-run.png)
+<img src="/assets/images/writeups/openclaw-run.webp" alt="OpenClaw onboarding security warning" loading="lazy" width="1000" height="1091">
 
 The onboarding shows a security warning. Read it. OpenClaw can run shell commands and access files, so binding to loopback and requiring auth isn't optional.
 
@@ -139,7 +139,7 @@ tailscale serve status
 
 You should see Tailscale serving HTTPS on your tailnet, proxying to localhost:18789.
 
-![Tailscale SSH and OpenClaw status](/assets/images/writeups/tailscale-ssh.png)
+<img src="/assets/images/writeups/tailscale-ssh.webp" alt="Tailscale SSH and OpenClaw status" loading="lazy" width="1000" height="1301">
 
 Once everything's running, `openclaw status` gives you a full overview: gateway health, active sessions, model in use, and Tailscale connectivity.
 
@@ -243,7 +243,7 @@ https://openclaw-vnic.YOUR-TAILNET.ts.net/?token=YOUR_TOKEN
 
 The dashboard reads the token, stores it in localStorage, and strips it from the URL.
 
-![OpenClaw web dashboard](/assets/images/writeups/openclaw-webui.png)
+<img src="/assets/images/writeups/openclaw-webui.webp" alt="OpenClaw web dashboard" loading="lazy" width="1000" height="607">
 
 The dashboard gives you chat, session management, channel configuration, logs, and settings all in one place.
 
@@ -258,7 +258,7 @@ openclaw pairing list telegram
 openclaw pairing approve telegram CODE
 ```
 
-![OpenClaw Telegram integration](/assets/images/writeups/openclaw-telegram.png)
+<img src="/assets/images/writeups/openclaw-telegram.webp" alt="OpenClaw Telegram integration" loading="lazy" width="1000" height="1301">
 
 Once paired, you can chat with OpenClaw directly in Telegram. It has full access to your gateway's capabilities.
 
