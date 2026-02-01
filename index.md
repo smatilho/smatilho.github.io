@@ -106,9 +106,9 @@ title: Home
       <span class="brace">}</span>
     </div>
     <div class="contact-links">
-      <a href="mailto:smatilho@gmail.com" class="contact-link">
+      <a href="mailto:steven@atilho.com" class="contact-link">
         <span class="icon">@</span>
-        smatilho@gmail.com
+        steven@atilho.com
       </a>
       <a href="https://linkedin.com/in/stevenati" target="_blank" class="contact-link">
         <span class="icon">in</span>

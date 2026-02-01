@@ -21,5 +21,5 @@ Visit: http://127.0.0.1:4000/
 ## Contact
 
 - Website: [www.stevenatilho.com](https://www.stevenatilho.com)
-- Email: smatilho@gmail.com
-- LinkedIn: [linkedin.com/in/stevenatilho](https://linkedin.com/in/stevenatilho)
+- Email: steven@atilho.com
+- LinkedIn: [linkedin.com/in/stevenati](https://linkedin.com/in/stevenatilho)
