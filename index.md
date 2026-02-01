@@ -36,16 +36,6 @@ title: Home
     </div>
     <div class="projects-grid">
       <div class="project-card">
-        <h3><span class="icon">//</span> Capaz AI</h3>
-        <p>AI-powered business solutions helping companies automate workflows and make smarter decisions with their data.</p>
-        <div class="project-tags">
-          <span class="project-tag">AI</span>
-          <span class="project-tag">Business</span>
-          <span class="project-tag">Automation</span>
-        </div>
-        <a href="https://capazai.com" target="_blank" class="project-link">capazai.com &rarr;</a>
-      </div>
-      <div class="project-card">
         <h3><span class="icon">//</span> GitHub Projects</h3>
         <p>Open source contributions, personal experiments, and various coding projects. From utilities to full applications.</p>
         <div class="project-tags">
