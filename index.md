@@ -72,14 +72,20 @@ title: Home
       <h2>Writeups</h2>
       <span class="brace">}</span>
     </div>
-    <div class="coming-soon">
-      <h3>Coming Soon</h3>
-      <p>Technical guides and walkthroughs on various projects and configurations.</p>
-      <ul class="preview-list">
-        <li>Network-Wide Ad Blocking with PiHole + Tailscale</li>
-        <li>Home Lab Setup and Configuration</li>
-        <li>More guides in the works...</li>
-      </ul>
+    <div class="writeups-grid">
+      <a href="/writeups/openclaw-oracle-vps-tailscale/" class="writeup-card">
+        <div class="writeup-date">January 30, 2025</div>
+        <h3>Running OpenClaw on a Free Oracle VPS with Tailscale</h3>
+        <p>A complete guide to setting up OpenClaw Gateway on Oracle Cloud's free ARM tier, secured with Tailscale and zero public ports exposed.</p>
+        <div class="writeup-tags">
+          <span class="writeup-tag">Oracle Cloud</span>
+          <span class="writeup-tag">Tailscale</span>
+          <span class="writeup-tag">Security</span>
+        </div>
+      </a>
+    </div>
+    <div class="more-coming">
+      <p>More guides in the works: PiHole + Tailscale, Home Lab Setup</p>
     </div>
   </div>
 </section>
