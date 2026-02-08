@@ -63,6 +63,17 @@ title: Home
       <span class="brace">}</span>
     </div>
     <div class="writeups-grid">
+      <a href="/writeups/wyse-5070-homelab-proxmox-adguard-tailscale/" class="writeup-card">
+        <div class="writeup-date">February 5, 2025</div>
+        <h3>Building a Homelab on a $40 Dell Wyse 5070</h3>
+        <p>A complete walkthrough from a stock Windows thin client to a working homelab with Proxmox, AdGuard Home, Unbound, and Tailscale.</p>
+        <div class="writeup-tags">
+          <span class="writeup-tag">Homelab</span>
+          <span class="writeup-tag">Proxmox</span>
+          <span class="writeup-tag">AdGuard Home</span>
+          <span class="writeup-tag">Tailscale</span>
+        </div>
+      </a>
       <a href="/writeups/openclaw-oracle-vps-tailscale/" class="writeup-card">
         <div class="writeup-date">January 30, 2025</div>
         <h3>Running OpenClaw on a Free Oracle VPS with Tailscale</h3>
@@ -73,9 +84,6 @@ title: Home
           <span class="writeup-tag">Security</span>
         </div>
       </a>
-    </div>
-    <div class="more-coming">
-      <p>More guides in the works: PiHole + Tailscale, Home Lab Setup</p>
     </div>
   </div>
 </section>
