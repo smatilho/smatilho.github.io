@@ -773,6 +773,15 @@ a:hover {
 
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
+  .bg-glow {
+    display: none;
+  }
+
+  .navbar {
+    backdrop-filter: none;
+    background-color: var(--bg-dark);
+  }
+
   .section-indicators {
     display: none;
   }
