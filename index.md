@@ -63,6 +63,17 @@ title: Home
       <span class="brace">}</span>
     </div>
     <div class="writeups-grid">
+      <a href="/writeups/reverse-proxy-tls-homelab/" class="writeup-card">
+        <div class="writeup-date">February 8, 2025</div>
+        <h3>Adding HTTPS to Everything: Nginx Proxy Manager on Proxmox</h3>
+        <p>Setting up Nginx Proxy Manager with real Let's Encrypt certificates via Cloudflare DNS-01 challenges — no ports exposed to the internet.</p>
+        <div class="writeup-tags">
+          <span class="writeup-tag">Reverse Proxy</span>
+          <span class="writeup-tag">TLS</span>
+          <span class="writeup-tag">Cloudflare</span>
+          <span class="writeup-tag">Proxmox</span>
+        </div>
+      </a>
       <a href="/writeups/wyse-5070-homelab-proxmox-adguard-tailscale/" class="writeup-card">
         <div class="writeup-date">February 5, 2025</div>
         <h3>Building a Homelab on a $40 Dell Wyse 5070</h3>
