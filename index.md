@@ -63,6 +63,17 @@ title: Home
       <span class="brace">}</span>
     </div>
     <div class="writeups-grid">
+      <a href="/writeups/monitoring-notifications-dashboard-homelab/" class="writeup-card">
+        <div class="writeup-date">February 9, 2026</div>
+        <h3>Monitoring, Notifications, and a Dashboard: Completing the Homelab Stack</h3>
+        <p>Setting up Uptime Kuma, ntfy, and Homepage on a Proxmox homelab — service monitoring, push notifications, and a single dashboard for everything.</p>
+        <div class="writeup-tags">
+          <span class="writeup-tag">Monitoring</span>
+          <span class="writeup-tag">Uptime Kuma</span>
+          <span class="writeup-tag">ntfy</span>
+          <span class="writeup-tag">Homepage</span>
+        </div>
+      </a>
       <a href="/writeups/reverse-proxy-tls-homelab/" class="writeup-card">
         <div class="writeup-date">February 8, 2025</div>
         <h3>Adding HTTPS to Everything: Nginx Proxy Manager on Proxmox</h3>

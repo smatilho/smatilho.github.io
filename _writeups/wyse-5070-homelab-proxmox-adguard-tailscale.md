@@ -53,7 +53,7 @@ Download [balenaEtcher](https://etcher.balena.io) (works on Windows, Mac, and Li
 2. Click **Select target** → choose your USB drive
 3. Click **Flash!** and wait for it to finish and verify
 
-<img src="/assets/images/writeups/wyse-homelab/wyse-balena-etcher.webp" alt="balenaEtcher flashing Proxmox VE ISO to USB" loading="lazy" width="1000" height="638">
+<img src="/assets/images/writeups/wyse-homelab/wyse-balena-etcher.webp" alt="balenaEtcher flashing Proxmox VE ISO to USB" loading="lazy">
 
 ### Write Down Your Network Info
 
@@ -222,7 +222,7 @@ Log in with:
 * **Password**: what you set during install
 * **Realm**: Linux PAM
 
-<img src="/assets/images/writeups/wyse-homelab/wyse-proxmox-dashboard.webp" alt="Proxmox VE 9.1 web GUI dashboard" loading="lazy" width="1000" height="933">
+<img src="/assets/images/writeups/wyse-homelab/wyse-proxmox-dashboard.webp" alt="Proxmox VE 9.1 web GUI dashboard" loading="lazy">
 
 ### Remove the Subscription Nag
 
@@ -322,7 +322,7 @@ Click **Create CT** (top-right corner of the GUI).
 | Password | Set a root password for this container |
 | Unprivileged | ✅ Checked |
 
-<img src="/assets/images/writeups/wyse-homelab/wyse-lxc-create-general.webp" alt="Proxmox Create LXC Container - General tab" loading="lazy" width="1000" height="1020">
+<img src="/assets/images/writeups/wyse-homelab/wyse-lxc-create-general.webp" alt="Proxmox Create LXC Container - General tab" loading="lazy">
 
 ### Template
 
@@ -363,7 +363,7 @@ DNS resolution isn't CPU-intensive. One core handles a household easily.
 
 > **Important:** Give this container its own static IP, separate from the Proxmox host. This is the IP your router will point to for DNS.
 
-<img src="/assets/images/writeups/wyse-homelab/wyse-lxc-create-network.webp" alt="Proxmox Create LXC Container - Network tab with static IP" loading="lazy" width="1000" height="1020">
+<img src="/assets/images/writeups/wyse-homelab/wyse-lxc-create-network.webp" alt="Proxmox Create LXC Container - Network tab with static IP" loading="lazy">
 
 ### DNS
 
@@ -475,7 +475,7 @@ dig google.com @127.0.0.1 -p 5335
 
 You should get an `ANSWER SECTION` with an IP address. If it works, Unbound is resolving recursively on port 5335.
 
-<img src="/assets/images/writeups/wyse-homelab/wyse-unbound-dig-test.webp" alt="Unbound dig test showing successful DNS resolution on port 5335" loading="lazy" width="1000" height="473">
+<img src="/assets/images/writeups/wyse-homelab/wyse-unbound-dig-test.webp" alt="Unbound dig test showing successful DNS resolution on port 5335" loading="lazy">
 
 ### Install AdGuard Home
 
@@ -512,7 +512,7 @@ http://192.168.4.3:3000
 
 This is the one-time setup wizard.
 
-<img src="/assets/images/writeups/wyse-homelab/wyse-adguard-setup-wizard.webp" alt="AdGuard Home setup wizard welcome page" loading="lazy" width="1000" height="566">
+<img src="/assets/images/writeups/wyse-homelab/wyse-adguard-setup-wizard.webp" alt="AdGuard Home setup wizard welcome page" loading="lazy">
 
 Configure it:
 
@@ -521,7 +521,7 @@ Configure it:
 3. **Username/Password**: Set your admin credentials
 4. Click through to finish
 
-<img src="/assets/images/writeups/wyse-homelab/wyse-adguard-setup-interfaces.webp" alt="AdGuard Home setup - configuring listen interfaces and ports" loading="lazy" width="1000" height="969">
+<img src="/assets/images/writeups/wyse-homelab/wyse-adguard-setup-interfaces.webp" alt="AdGuard Home setup - configuring listen interfaces and ports" loading="lazy">
 
 ### Point AdGuard Home to Unbound
 
@@ -560,7 +560,7 @@ dig google.com
 
 Should resolve through your own AdGuard Home → Unbound pipeline. Check the AdGuard Home dashboard — you should see the query logged.
 
-<img src="/assets/images/writeups/wyse-homelab/wyse-adguard-dashboard.webp" alt="AdGuard Home dashboard showing DNS queries and statistics" loading="lazy" width="1000" height="969">
+<img src="/assets/images/writeups/wyse-homelab/wyse-adguard-dashboard.webp" alt="AdGuard Home dashboard showing DNS queries and statistics" loading="lazy">
 
 ---
 
@@ -707,11 +707,11 @@ This is the real payoff. Every device on your Tailscale network can use AdGuard 
 4. Check **Override local DNS** if you want to force all tailnet devices through AdGuard
 5. Save
 
-<img src="/assets/images/writeups/wyse-homelab/wyse-tailscale-add-nameserver.webp" alt="Tailscale admin console - adding AdGuard Home as custom nameserver" loading="lazy" width="1000" height="572">
+<img src="/assets/images/writeups/wyse-homelab/wyse-tailscale-add-nameserver.webp" alt="Tailscale admin console - adding AdGuard Home as custom nameserver" loading="lazy">
 
 Now any device running Tailscale uses your self-hosted AdGuard Home for DNS resolution, whether you're at home or on the road.
 
-<img src="/assets/images/writeups/wyse-homelab/wyse-tailscale-nameservers.webp" alt="Tailscale DNS nameservers configured with AdGuard Home" loading="lazy" width="1000" height="483">
+<img src="/assets/images/writeups/wyse-homelab/wyse-tailscale-nameservers.webp" alt="Tailscale DNS nameservers configured with AdGuard Home" loading="lazy">
 
 ---
 
@@ -808,7 +808,7 @@ dpkg-reconfigure -plow unattended-upgrades
 
 Select **Yes** to enable.
 
-<img src="/assets/images/writeups/wyse-homelab/wyse-proxmox-unattended-upgrades.webp" alt="Configuring unattended-upgrades in the Proxmox console" loading="lazy" width="1000" height="1075">
+<img src="/assets/images/writeups/wyse-homelab/wyse-proxmox-unattended-upgrades.webp" alt="Configuring unattended-upgrades in the Proxmox console" loading="lazy">
 
 ---
 
