@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building a Homelab on a $40 Dell Wyse 5070: Proxmox, AdGuard Home, and Tailscale"
-date: 2025-02-05
+date: 2026-02-05
 description: "A complete walkthrough from a stock Windows thin client to a working homelab with Proxmox, AdGuard Home, Unbound, and Tailscale on a Dell Wyse 5070."
 tags: [Homelab, Proxmox, AdGuard Home, Tailscale, DNS, Dell Wyse 5070]
 ---

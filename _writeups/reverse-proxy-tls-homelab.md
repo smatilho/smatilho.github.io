@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Adding HTTPS to Everything: Nginx Proxy Manager on Proxmox"
-date: 2025-02-07
+date: 2026-02-07
 description: "Setting up Nginx Proxy Manager with real Let's Encrypt certificates via Cloudflare DNS-01 challenges on a Proxmox homelab — no ports exposed to the internet."
 tags: [Homelab, Proxmox, Nginx Proxy Manager, TLS, Let's Encrypt, Cloudflare, Reverse Proxy]
 ---
@@ -41,8 +41,6 @@ Here's what the stack looks like after this writeup:
     └─────────┘       → 192.168.4.118 (backup Pi-hole)
 ```
 
-![Architecture diagram with reverse proxy layer](/assets/images/writeups/reverse-proxy/reverse-proxy-architecture.webp)
-
 **What's new:** CT 101 runs Nginx Proxy Manager inside Docker. It receives all HTTPS requests on ports 80 and 443, terminates TLS using real Let's Encrypt certificates, and forwards traffic to the appropriate backend service. Certificates are issued via DNS-01 challenges through Cloudflare — no ports need to be opened to the internet.
 
 ## Why Nginx Proxy Manager
@@ -79,8 +77,6 @@ Nginx Proxy Manager needs API access to your DNS provider to complete DNS-01 cha
 1. Create a Cloudflare account at [dash.cloudflare.com](https://dash.cloudflare.com) (or log in)
 2. In the left sidebar, click **Domains** — you'll see the Domain Management page. If this is a fresh account, it'll say "No domains or subdomains found."
 
-![Cloudflare Domain Management — empty state](/assets/images/writeups/reverse-proxy/cloudflare-domain-management-empty.webp)
-
 3. Click **Onboard a domain**
 4. In the "Enter an existing domain" field, type your domain (e.g., `atilho.com`)
 5. Leave **Quick scan for DNS records** selected (the recommended default) — Cloudflare will automatically import your existing records from your current registrar
@@ -88,15 +84,11 @@ Nginx Proxy Manager needs API access to your DNS provider to complete DNS-01 cha
 7. Leave **Instruct AI bot traffic with robots.txt** toggled on
 8. Click **Continue**
 
-![Cloudflare onboard domain wizard](/assets/images/writeups/reverse-proxy/cloudflare-onboard-domain.webp)
-
 9. On the next screen, select the **Free** plan
 
 ### 1.2 — Review and Clean Up Imported DNS Records
 
 Cloudflare will scan your registrar's DNS and show you a "Review your DNS records" page with everything it found. In my case it picked up 2 A records, 2 CNAMEs, 2 MX records, 4 NS records, and 3 TXT records.
-
-![Cloudflare DNS record review](/assets/images/writeups/reverse-proxy/cloudflare-dns-review.webp)
 
 **Delete these if they exist** — they're default parking records from your registrar and will cause problems later:
 
@@ -116,8 +108,6 @@ After cleaning up, scroll down and click **Continue to activation**.
 
 Cloudflare will show you an "Update your nameservers to activate Cloudflare" page with two nameservers assigned to your account and a list of your registrar's nameservers to remove.
 
-![Cloudflare nameserver assignment](/assets/images/writeups/reverse-proxy/cloudflare-nameservers.webp)
-
 It also recommends **making sure DNSSEC is off** at your registrar before switching nameservers. If DNSSEC is on at your registrar but Cloudflare isn't managing it yet, DNS resolution can break during the transition. You can re-enable it through Cloudflare later.
 
 Now switch to your registrar to make the swap. In Porkbun:
@@ -135,11 +125,7 @@ Now switch to your registrar to make the swap. In Porkbun:
    (Your assigned nameservers will be different — use the ones Cloudflare showed you.)
 7. Click **Submit**
 
-![Porkbun nameserver edit dialog](/assets/images/writeups/reverse-proxy/porkbun-nameserver-edit.webp)
-
 8. Porkbun will show a warning: "You appear to be removing our default nameservers. If you have any services configured for the domain they will most likely break." This is expected — click **OK**. Your site and email will continue working since Cloudflare already has copies of your A and MX records.
-
-![Porkbun nameserver warning](/assets/images/writeups/reverse-proxy/porkbun-nameserver-warning.webp)
 
 If you're on a different registrar:
 
@@ -152,8 +138,6 @@ If you're on a different registrar:
 Switch back to the Cloudflare tab and click **I updated my nameservers**. Propagation can take up to 48 hours but usually happens within minutes. In my case it was near-instant.
 
 Once active, you'll see the Overview page for your domain with a green checkmark and "Your domain is now protected by Cloudflare."
-
-![Cloudflare domain activation success](/assets/images/writeups/reverse-proxy/cloudflare-activation-success.webp)
 
 You can ignore the Quick Start guide, security toggles, and performance suggestions for now — none of that is relevant to the reverse proxy setup. Your personal site should still be working normally. Verify by visiting it in a browser.
 
@@ -168,8 +152,6 @@ NPM needs a way to talk to Cloudflare's API to create the TXT records for DNS-01
 1. Go to [dash.cloudflare.com/profile/api-tokens](https://dash.cloudflare.com/profile/api-tokens) — you can find this by clicking your profile icon in the top right → **My Profile** → **API Tokens** in the left sidebar
 2. You'll see the "User API Tokens" page with an empty token list and an "API Keys" section below it. Ignore the API Keys — you want **API Tokens**. Click **Create Token**.
 
-![Cloudflare API Tokens page](/assets/images/writeups/reverse-proxy/cloudflare-api-tokens-page.webp)
-
 3. On the template selection screen, find **Edit zone DNS** and click **Use template**
 4. On the "Create Token" configuration page, verify/set:
 
@@ -182,8 +164,6 @@ NPM needs a way to talk to Cloudflare's API to create the TXT records for DNS-01
 | **TTL** | | Leave blank (no expiration) |
 
 The important one is **Zone Resources** — make sure you select `Specific zone` in the middle dropdown and then pick your domain from the third dropdown. This scopes the token to only your domain instead of giving it access to all zones on your account.
-
-![Cloudflare API token configuration](/assets/images/writeups/reverse-proxy/cloudflare-api-token-config.webp)
 
 5. Click **Continue to summary** → **Create Token**
 
@@ -230,8 +210,6 @@ In the Proxmox web GUI, click **Create CT** (top right):
 | | Gateway | `192.168.4.1` |
 | **DNS** | DNS domain | `lab.atilho.com` |
 | | DNS server | `192.168.4.3` |
-
-![CT 101 creation in Proxmox](/assets/images/writeups/reverse-proxy/ct101-creation.webp)
 
 **Why 1024 MB RAM?** Docker + NPM + its built-in MariaDB database need more headroom than AdGuard. 512 MB would work but you'd be tight. 1 GB keeps things comfortable.
 
@@ -296,8 +274,6 @@ docker run hello-world
 
 If you see "Hello from Docker!", you're good. If Docker fails to start, double-check that **Nesting** is enabled and the `lxc.apparmor.profile` lines were added in Part 3.2.
 
-![Docker hello-world output](/assets/images/writeups/reverse-proxy/docker-hello-world.webp)
-
 ---
 
 ## Part 5: Deploy Nginx Proxy Manager
@@ -353,8 +329,6 @@ http://192.168.4.4:81
 
 You'll see a "Welcome! Get started by creating your admin account" screen. Fill in your name, email, and a strong password, then click **Save**.
 
-![Nginx Proxy Manager welcome screen](/assets/images/writeups/reverse-proxy/npm-welcome.webp)
-
 ---
 
 ## Part 6: Get Your First SSL Certificate
@@ -367,6 +341,9 @@ In the NPM admin UI:
 
 1. Go to **Certificates** tab in the top nav
 2. Click **Add Certificate** → **Let's Encrypt via DNS**
+
+<img src="/assets/images/writeups/reverse-proxy/npm-certificates-page.webp" alt="NPM certificates page with Add Certificate dropdown" loading="lazy">
+
 3. Fill in:
 
 | Field | Value |
@@ -381,7 +358,7 @@ Replace `YOUR_TOKEN_HERE` with the Cloudflare API token from Part 2.
 
 4. **Agree to TOS** → Click **Save**
 
-![NPM SSL certificate creation with DNS challenge](/assets/images/writeups/reverse-proxy/npm-ssl-cert.webp)
+<img src="/assets/images/writeups/reverse-proxy/npm-ssl-cert.webp" alt="NPM SSL certificate creation with DNS challenge" loading="lazy">
 
 NPM will call the Cloudflare API, create a `_acme-challenge.lab.atilho.com` TXT record, Let's Encrypt verifies it, and you get a real certificate. This takes 30 seconds to a couple minutes.
 
@@ -394,6 +371,8 @@ If it fails, the most common causes are:
 ### 6.2 — Verify the Certificate
 
 Once created, you'll see it listed in the SSL Certificates tab with an expiry date ~90 days out. NPM handles renewal automatically — you don't need to touch this again.
+
+<img src="/assets/images/writeups/reverse-proxy/npm-ssl-cert-created.webp" alt="Wildcard certificate created successfully in NPM" loading="lazy">
 
 ---
 
@@ -416,7 +395,7 @@ Open AdGuard Home at `http://192.168.4.3` (or the Tailscale IP):
 | `pve01.lab.atilho.com` | `192.168.4.4` |
 | `npm.lab.atilho.com` | `192.168.4.4` |
 
-![AdGuard DNS rewrites for lab subdomains](/assets/images/writeups/reverse-proxy/adguard-dns-rewrites.webp)
+<img src="/assets/images/writeups/reverse-proxy/adguard-dns-rewrites.webp" alt="AdGuard DNS rewrite for wildcard lab subdomain" loading="lazy">
 
 **Why do they all point to `.4` (the reverse proxy)?** Because that's the whole point — all traffic hits NPM first, and NPM decides where to send it based on the hostname. The backend services don't need to know about TLS at all.
 
@@ -437,6 +416,8 @@ nslookup adguard.lab.atilho.com
 ```
 
 Should return `192.168.4.4`. If it doesn't, flush your DNS cache and try again.
+
+<img src="/assets/images/writeups/reverse-proxy/nslookup-test.webp" alt="nslookup verifying DNS resolution to reverse proxy IP" loading="lazy">
 
 ---
 
@@ -471,7 +452,8 @@ In NPM admin UI (`http://192.168.4.4:81`):
 
 5. Click **Save**
 
-![NPM proxy host for AdGuard](/assets/images/writeups/reverse-proxy/npm-adguard-proxy.webp)
+<img src="/assets/images/writeups/reverse-proxy/npm-adguard-proxy.webp" alt="NPM proxy host Details tab for AdGuard" loading="lazy">
+
 
 **Test it:** Open `https://adguard.lab.atilho.com` in your browser. You should see the AdGuard Home dashboard — with a padlock in the address bar and no security warnings.
 
@@ -525,6 +507,12 @@ You can also put NPM's own admin UI behind itself:
 | Force SSL | ✅ |
 
 Now `https://npm.lab.atilho.com` gets you the NPM dashboard over HTTPS. Once this works, you can firewall off port 81 externally since you no longer need direct access.
+
+<img src="/assets/images/writeups/reverse-proxy/npm-proxy-hosts-http.webp" alt="NPM proxy hosts list showing three services online" loading="lazy">
+
+Open `https://npm.lab.atilho.com` — you should see the same proxy hosts list, now served over HTTPS with a valid certificate:
+
+<img src="/assets/images/writeups/reverse-proxy/npm-proxy-hosts-https.webp" alt="NPM proxy hosts accessed via HTTPS reverse proxy" loading="lazy">
 
 ---
 
@@ -597,8 +585,6 @@ Then advertise the subnet. Include any existing non-default flags (Tailscale wil
 tailscale up --advertise-routes=192.168.4.0/22 --hostname=pve01
 ```
 
-![Proxmox host advertising subnet route](/assets/images/writeups/reverse-proxy/tailscale-subnet-advertise.webp)
-
 Now approve the route in the Tailscale admin console:
 
 1. Go to [Machines](https://login.tailscale.com/admin/machines) → click **pve01**
@@ -606,7 +592,9 @@ Now approve the route in the Tailscale admin console:
 3. Check the box for `192.168.4.0/22`
 4. Click **Save**
 
-![Tailscale subnet route approval](/assets/images/writeups/reverse-proxy/tailscale-subnet-approve.webp)
+<img src="/assets/images/writeups/reverse-proxy/tailscale-subnet-approve.webp" alt="Tailscale subnet route approval for 192.168.4.0/22" loading="lazy">
+
+<img src="/assets/images/writeups/reverse-proxy/tailscale-pve01-machine.webp" alt="Tailscale pve01 subnets approved" loading="lazy">
 
 ### 10.2 — Configure Split DNS
 
@@ -622,7 +610,9 @@ In the [Tailscale admin console](https://login.tailscale.com/admin/dns):
 4. Leave **Use with exit node** OFF
 5. Click **Save**
 
-![Tailscale Split DNS configuration](/assets/images/writeups/reverse-proxy/tailscale-split-dns.webp)
+<img src="/assets/images/writeups/reverse-proxy/tailscale-split-dns.webp" alt="Tailscale Split DNS configuration for lab.atilho.com" loading="lazy">
+
+<img src="/assets/images/writeups/reverse-proxy/tailscale-dns-configured.webp" alt="Tailscale DNS admin page with Split DNS configured" loading="lazy">
 
 > **Why the Tailscale IP?** Using AdGuard's Tailscale IP (`100.x.x.x`) instead of its LAN IP (`192.168.4.3`) ensures DNS resolution works from any device on your tailnet, regardless of physical network.
 
@@ -662,6 +652,8 @@ This is where the investment pays off. Every new service you spin up follows the
 
 That's it. Real HTTPS cert, clean URL, no port numbers, done in under a minute.
 
+<img src="/assets/images/writeups/reverse-proxy/npm-proxy-hosts-final.webp" alt="NPM proxy hosts with four services including Pi-hole" loading="lazy">
+
 | Future Service | Hostname | Backend |
 | --- | --- | --- |
 | Vaultwarden | `vault.lab.atilho.com` | `192.168.4.x:8080` |
@@ -689,10 +681,6 @@ For each container, go to **Options** → double-click **Start at boot** → che
 
 The 10-second delay gives AdGuard time to initialize before NPM's Docker containers start making DNS requests.
 
-![CT 101 start at boot setting](/assets/images/writeups/reverse-proxy/ct101-start-at-boot.webp)
-
-![CT 101 start order setting](/assets/images/writeups/reverse-proxy/ct101-start-order.webp)
-
 ### 12.2 — Take a Snapshot
 
 Everything is working — DNS, TLS, reverse proxy, remote access. This is a good time to snapshot both containers so you have a known-good state to roll back to.
@@ -701,8 +689,6 @@ In Proxmox, select each container → **Snapshots** → **Take Snapshot**:
 
 - CT 100: `fresh-adguard-setup`
 - CT 101: `fresh-npm-setup`
-
-![CT 101 snapshot](/assets/images/writeups/reverse-proxy/ct101-snapshot.webp)
 
 > **Watch your disk space.** The Wyse 5070's SSD is limited and snapshots grow over time as container data changes. Run `lvs` on the Proxmox host to check actual thin pool usage vs. allocated space. Delete old snapshots once you've confirmed things are stable — they silently eat space.
 

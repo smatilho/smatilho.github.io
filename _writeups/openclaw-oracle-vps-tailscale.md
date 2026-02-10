@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Running OpenClaw on a Free Oracle VPS with Tailscale"
-date: 2025-01-30
+date: 2026-01-30
 description: "A complete guide to setting up OpenClaw Gateway on Oracle Cloud's free ARM tier, secured with Tailscale and zero public ports exposed."
 tags: [Oracle Cloud, Tailscale, OpenClaw, VPS, Security]
 ---
