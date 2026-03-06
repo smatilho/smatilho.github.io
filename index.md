@@ -45,6 +45,26 @@ title: Home
         <a href="https://github.com/smatilho" target="_blank" class="project-link">github.com/smatilho &rarr;</a>
       </div>
       <div class="project-card">
+        <h3><span class="icon">//</span> Club OS</h3>
+        <p>Club OS is an open-source, multi-tenant blueprint for modern club platforms across public content, member workflows (dues, reservations, and account management), and admin operations. It emerged from modernization work I have been doing with Sterling Ski Club, where an aging stack highlighted the need for a more maintainable, lower-cost architecture with less institutional-knowledge risk.</p>
+        <div class="project-tags">
+          <span class="project-tag">Architecture-First</span>
+          <span class="project-tag">Multi-Tenant</span>
+          <span class="project-tag">Maintainability</span>
+        </div>
+        <a href="https://github.com/smatilho/club-os" target="_blank" class="project-link">github.com/smatilho/club-os &rarr;</a>
+      </div>
+      <div class="project-card">
+        <h3><span class="icon">//</span> Labsight</h3>
+        <p>Labsight is an AI-powered operations assistant for self-hosted infrastructure, combining document retrieval with metrics analysis so questions can be answered from real runbooks, configs, and telemetry. I built it as an architecture-focused platform that prioritizes practical observability, traceable responses, and maintainable infrastructure-as-code deployment.</p>
+        <div class="project-tags">
+          <span class="project-tag">AIOps</span>
+          <span class="project-tag">RAG + Agents</span>
+          <span class="project-tag">Terraform</span>
+        </div>
+        <a href="https://github.com/smatilho/labsight" target="_blank" class="project-link">github.com/smatilho/labsight &rarr;</a>
+      </div>
+      <div class="project-card">
         <h3><span class="icon">//</span> More Coming Soon</h3>
         <p>Always building something new. Check back for updates on current and upcoming projects.</p>
         <div class="project-tags">
@@ -117,9 +137,34 @@ title: Home
       <h2>Photography</h2>
       <span class="brace">}</span>
     </div>
-    <div class="coming-soon">
-      <h3>Coming Soon</h3>
-      <p>A gallery of photos from travels, projects, and everyday moments.</p>
+    <div class="photography-intro">
+      <p>A growing gallery from travels, projects, and everyday moments.</p>
+    </div>
+    <div class="photo-grid">
+      <figure class="photo-card">
+        <a href="/assets/images/photos/full/harley-fort-trumbull.jpeg" target="_blank" rel="noopener" class="photo-link">
+          <img src="/assets/images/photos/harley-fort-trumbull.webp" alt="A Harley-Davidson motorcycle near Fort Trumbull." loading="lazy">
+        </a>
+        <figcaption>Harley Sportster 1200 at Fort Trumbull Beach</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <a href="/assets/images/photos/full/madeira-botanical-gardens.jpeg" target="_blank" rel="noopener" class="photo-link">
+          <img src="/assets/images/photos/madeira-botanical-gardens.webp" alt="View from Madeira Botanical Gardens." loading="lazy">
+        </a>
+        <figcaption>Madeira Botanical Gardens</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <a href="/assets/images/photos/full/porto-moniz.jpeg" target="_blank" rel="noopener" class="photo-link">
+          <img src="/assets/images/photos/porto-moniz.webp" alt="Coastline and volcanic pools at Porto Moniz, Madeira." loading="lazy">
+        </a>
+        <figcaption>Porto Moniz, Madeira</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <a href="/assets/images/photos/full/praia-formosa.jpeg" target="_blank" rel="noopener" class="photo-link">
+          <img src="/assets/images/photos/praia-formosa.webp" alt="Waves and shoreline at Praia Formosa beach." loading="lazy">
+        </a>
+        <figcaption>Praia Formosa</figcaption>
+      </figure>
     </div>
   </div>
 </section>
