@@ -22,8 +22,9 @@
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <link rel="canonical" href="{{ site.url }}{{ page.url | default: '' }}">
 
+  {% assign css_version = site.time | date: "%s" %}
   <link rel="preload" href="{{ '/assets/fonts/jetbrains-mono-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ css_version }}">
 
   <!-- Structured Data (Schema.org) -->
   <script type="application/ld+json">
