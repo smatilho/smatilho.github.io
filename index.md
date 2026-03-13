@@ -83,6 +83,17 @@ title: Home
       <span class="brace">}</span>
     </div>
     <div class="writeups-grid">
+      <a href="/writeups/second-node-optiplex-5060-homelab/" class="writeup-card">
+        <div class="writeup-date">March 12, 2026</div>
+        <h3>Adding a Second Node: OptiPlex 5060 Joins the Homelab</h3>
+        <p>Expanding from a single Wyse 5070 to a two-node homelab with a Dell OptiPlex 5060 — Proxmox install, integration with existing monitoring, dashboard, and reverse proxy infrastructure.</p>
+        <div class="writeup-tags">
+          <span class="writeup-tag">Homelab</span>
+          <span class="writeup-tag">Proxmox</span>
+          <span class="writeup-tag">Multi-Node</span>
+          <span class="writeup-tag">OptiPlex 5060</span>
+        </div>
+      </a>
       <a href="/writeups/monitoring-notifications-dashboard-homelab/" class="writeup-card">
         <div class="writeup-date">February 9, 2026</div>
         <h3>Monitoring, Notifications, and a Dashboard: Completing the Homelab Stack</h3>
