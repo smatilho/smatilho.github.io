@@ -83,6 +83,17 @@ title: Home
       <span class="brace">}</span>
     </div>
     <div class="writeups-grid">
+      <a href="/writeups/gpu-bridge-wol-ollama-telegram-homelab/" class="writeup-card">
+        <div class="writeup-date">March 16, 2026</div>
+        <h3>On-Demand GPU Inference: Wake-on-LAN, Ollama, and Telegram Control</h3>
+        <p>Building a GPU bridge that wakes a Windows desktop on demand for local LLM inference, controlled via Telegram and accessible to the entire homelab.</p>
+        <div class="writeup-tags">
+          <span class="writeup-tag">Homelab</span>
+          <span class="writeup-tag">Ollama</span>
+          <span class="writeup-tag">Wake-on-LAN</span>
+          <span class="writeup-tag">Telegram</span>
+        </div>
+      </a>
       <a href="/writeups/second-node-optiplex-5060-homelab/" class="writeup-card">
         <div class="writeup-date">March 12, 2026</div>
         <h3>Adding a Second Node: OptiPlex 5060 Joins the Homelab</h3>
