@@ -83,6 +83,17 @@ title: Home
       <span class="brace">}</span>
     </div>
     <div class="writeups-grid">
+      <a href="/writeups/workflow-automation-n8n-openclaw-homelab/" class="writeup-card">
+        <div class="writeup-date">March 24, 2026</div>
+        <h3>Workflow Automation: n8n and OpenClaw on the Homelab</h3>
+        <p>Deploying n8n for visual workflow automation and migrating OpenClaw for Telegram-driven task management, both wired into the GPU bridge for local AI inference.</p>
+        <div class="writeup-tags">
+          <span class="writeup-tag">Homelab</span>
+          <span class="writeup-tag">n8n</span>
+          <span class="writeup-tag">OpenClaw</span>
+          <span class="writeup-tag">Automation</span>
+        </div>
+      </a>
       <a href="/writeups/gpu-bridge-wol-ollama-telegram-homelab/" class="writeup-card">
         <div class="writeup-date">March 16, 2026</div>
         <h3>On-Demand GPU Inference: Wake-on-LAN, Ollama, and Telegram Control</h3>
